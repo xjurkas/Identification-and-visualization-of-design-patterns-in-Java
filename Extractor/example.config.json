@@ -1,0 +1,27 @@
+{
+  "JDTLS_SERVER_DIR": "C:/Users/username/.vscode/extensions/redhat.java-1.54.0-win32-x64/server",
+  "PROJECT_DIR": "C:/path/to/your/JavaProject",
+  "WORKSPACE_DIR": "C:/workspace-JavaProject",
+  "OUTPUT_FILE": "graph_JavaProject.json",
+  "XMX": "2G",
+  "SKIP_DIRS": [
+    ".git",
+    "target",
+    "node_modules",
+    ".idea",
+    ".gradle",
+    ".metadata"
+  ],
+  "CONCURRENCY": {
+    "callHierarchy": 2,
+    "typeHierarchy": 2
+  },
+  "TIMEOUT": {
+    "initialize": 30000,
+    "documentSymbol": 20000,
+    "prepareCallHierarchy": 15000,
+    "outgoingCalls": 25000,
+    "prepareTypeHierarchy": 15000,
+    "supertypes": 20000
+  }
+}

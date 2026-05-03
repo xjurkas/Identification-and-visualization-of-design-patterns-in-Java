@@ -1,0 +1,12 @@
+{
+  "name": "design-pattern-detector",
+  "version": "1.0.0",
+  "description": "GoF design pattern detection and visualization via JDTLS and Neo4j",
+  "main": "client.js",
+  "scripts": {
+    "start": "node client.js"
+  },
+  "dependencies": {
+    "vscode-jsonrpc": "^5.0.1"
+  }
+}
