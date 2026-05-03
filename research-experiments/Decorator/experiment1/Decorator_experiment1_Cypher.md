@@ -53,3 +53,4 @@ WHERE EXISTS {
 WITH DISTINCT baseDecoratorClass
 SET baseDecoratorClass:Decorator
 }
+
