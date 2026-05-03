@@ -1,0 +1,213 @@
+Visitor — Experiment 3: Reciprocity with Element
+Date: 2026-04-29 15:58:38
+Rule: Expeirment 1 + must exist class with accept-method with parameter type Visitor
+
+quickuml: 0 visitor(s), 0 element(s)
+
+lexi: 0 visitor(s), 0 element(s)
+
+jrefac: 2 visitor(s), 100 element(s)
+  - [Visitor] org.acm.seguin.parser.JavaParserVisitor  (86 visit methods)
+  - [Visitor] org.acm.seguin.summary.SummaryVisitor  (13 visit methods)
+  - [Element] org.acm.seguin.parser.Node
+  - [Element] org.acm.seguin.parser.ast.ASTAdditiveExpression
+  - [Element] org.acm.seguin.parser.ast.ASTAllocationExpression
+  - [Element] org.acm.seguin.parser.ast.ASTAndExpression
+  - [Element] org.acm.seguin.parser.ast.ASTArgumentList
+  - [Element] org.acm.seguin.parser.ast.ASTArguments
+  - [Element] org.acm.seguin.parser.ast.ASTArrayDimsAndInits
+  - [Element] org.acm.seguin.parser.ast.ASTArrayInitializer
+  - [Element] org.acm.seguin.parser.ast.ASTAssignmentOperator
+  - [Element] org.acm.seguin.parser.ast.ASTBlock
+  - [Element] org.acm.seguin.parser.ast.ASTBlockStatement
+  - [Element] org.acm.seguin.parser.ast.ASTBooleanLiteral
+  - [Element] org.acm.seguin.parser.ast.ASTBreakStatement
+  - [Element] org.acm.seguin.parser.ast.ASTCastExpression
+  - [Element] org.acm.seguin.parser.ast.ASTCastLookahead
+  - [Element] org.acm.seguin.parser.ast.ASTClassBody
+  - [Element] org.acm.seguin.parser.ast.ASTClassBodyDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTClassDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTCompilationUnit
+  - [Element] org.acm.seguin.parser.ast.ASTConditionalAndExpression
+  - [Element] org.acm.seguin.parser.ast.ASTConditionalExpression
+  - [Element] org.acm.seguin.parser.ast.ASTConditionalOrExpression
+  - [Element] org.acm.seguin.parser.ast.ASTConstructorDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTContinueStatement
+  - [Element] org.acm.seguin.parser.ast.ASTDoStatement
+  - [Element] org.acm.seguin.parser.ast.ASTEmptyStatement
+  - [Element] org.acm.seguin.parser.ast.ASTEqualityExpression
+  - [Element] org.acm.seguin.parser.ast.ASTExclusiveOrExpression
+  - [Element] org.acm.seguin.parser.ast.ASTExplicitConstructorInvocation
+  - [Element] org.acm.seguin.parser.ast.ASTExpression
+  - [Element] org.acm.seguin.parser.ast.ASTFieldDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTForInit
+  - [Element] org.acm.seguin.parser.ast.ASTForStatement
+  - [Element] org.acm.seguin.parser.ast.ASTForUpdate
+  - [Element] org.acm.seguin.parser.ast.ASTFormalParameter
+  - [Element] org.acm.seguin.parser.ast.ASTFormalParameters
+  - [Element] org.acm.seguin.parser.ast.ASTIfStatement
+  - [Element] org.acm.seguin.parser.ast.ASTImportDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTInclusiveOrExpression
+  - [Element] org.acm.seguin.parser.ast.ASTInitializer
+  - [Element] org.acm.seguin.parser.ast.ASTInstanceOfExpression
+  - [Element] org.acm.seguin.parser.ast.ASTInterfaceBody
+  - [Element] org.acm.seguin.parser.ast.ASTInterfaceDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTInterfaceMemberDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTLabeledStatement
+  - [Element] org.acm.seguin.parser.ast.ASTLiteral
+  - [Element] org.acm.seguin.parser.ast.ASTLocalVariableDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTMethodDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTMethodDeclarationLookahead
+  - [Element] org.acm.seguin.parser.ast.ASTMethodDeclarator
+  - [Element] org.acm.seguin.parser.ast.ASTMultiplicativeExpression
+  - [Element] org.acm.seguin.parser.ast.ASTName
+  - [Element] org.acm.seguin.parser.ast.ASTNameList
+  - [Element] org.acm.seguin.parser.ast.ASTNestedClassDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTNestedInterfaceDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTNullLiteral
+  - [Element] org.acm.seguin.parser.ast.ASTPackageDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTPostfixExpression
+  - [Element] org.acm.seguin.parser.ast.ASTPreDecrementExpression
+  - [Element] org.acm.seguin.parser.ast.ASTPreIncrementExpression
+  - [Element] org.acm.seguin.parser.ast.ASTPrimaryExpression
+  - [Element] org.acm.seguin.parser.ast.ASTPrimaryPrefix
+  - [Element] org.acm.seguin.parser.ast.ASTPrimarySuffix
+  - [Element] org.acm.seguin.parser.ast.ASTPrimitiveType
+  - [Element] org.acm.seguin.parser.ast.ASTRelationalExpression
+  - [Element] org.acm.seguin.parser.ast.ASTResultType
+  - [Element] org.acm.seguin.parser.ast.ASTReturnStatement
+  - [Element] org.acm.seguin.parser.ast.ASTShiftExpression
+  - [Element] org.acm.seguin.parser.ast.ASTStatement
+  - [Element] org.acm.seguin.parser.ast.ASTStatementExpression
+  - [Element] org.acm.seguin.parser.ast.ASTStatementExpressionList
+  - [Element] org.acm.seguin.parser.ast.ASTSwitchLabel
+  - [Element] org.acm.seguin.parser.ast.ASTSwitchStatement
+  - [Element] org.acm.seguin.parser.ast.ASTSynchronizedStatement
+  - [Element] org.acm.seguin.parser.ast.ASTThrowStatement
+  - [Element] org.acm.seguin.parser.ast.ASTTryStatement
+  - [Element] org.acm.seguin.parser.ast.ASTType
+  - [Element] org.acm.seguin.parser.ast.ASTTypeDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTUnaryExpression
+  - [Element] org.acm.seguin.parser.ast.ASTUnaryExpressionNotPlusMinus
+  - [Element] org.acm.seguin.parser.ast.ASTUnmodifiedClassDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTUnmodifiedInterfaceDeclaration
+  - [Element] org.acm.seguin.parser.ast.ASTVariableDeclarator
+  - [Element] org.acm.seguin.parser.ast.ASTVariableDeclaratorId
+  - [Element] org.acm.seguin.parser.ast.ASTVariableInitializer
+  - [Element] org.acm.seguin.parser.ast.ASTWhileStatement
+  - [Element] org.acm.seguin.parser.ast.SimpleNode
+  - [Element] org.acm.seguin.summary.FieldAccessSummary
+  - [Element] org.acm.seguin.summary.FieldSummary
+  - [Element] org.acm.seguin.summary.FileSummary
+  - [Element] org.acm.seguin.summary.ImportSummary
+  - [Element] org.acm.seguin.summary.LocalVariableSummary
+  - [Element] org.acm.seguin.summary.MessageSendSummary
+  - [Element] org.acm.seguin.summary.MethodSummary
+  - [Element] org.acm.seguin.summary.PackageSummary
+  - [Element] org.acm.seguin.summary.ParameterSummary
+  - [Element] org.acm.seguin.summary.Summary
+  - [Element] org.acm.seguin.summary.TypeDeclSummary
+  - [Element] org.acm.seguin.summary.TypeSummary
+  - [Element] org.acm.seguin.summary.VariableSummary
+
+netbeans: 0 visitor(s), 0 element(s)
+
+junit: 0 visitor(s), 0 element(s)
+
+jhotdraw: 0 visitor(s), 0 element(s)
+
+mapper: 0 visitor(s), 0 element(s)
+
+nutch: 0 visitor(s), 0 element(s)
+
+PMD: 1 visitor(s), 89 element(s)
+  - [Visitor] net.sourceforge.pmd.ast.JavaParserVisitor  (88 visit methods)
+  - [Element] net.sourceforge.pmd.ast.ASTAdditiveExpression
+  - [Element] net.sourceforge.pmd.ast.ASTAllocationExpression
+  - [Element] net.sourceforge.pmd.ast.ASTAndExpression
+  - [Element] net.sourceforge.pmd.ast.ASTArgumentList
+  - [Element] net.sourceforge.pmd.ast.ASTArguments
+  - [Element] net.sourceforge.pmd.ast.ASTArrayDimsAndInits
+  - [Element] net.sourceforge.pmd.ast.ASTArrayInitializer
+  - [Element] net.sourceforge.pmd.ast.ASTAssertStatement
+  - [Element] net.sourceforge.pmd.ast.ASTAssignmentOperator
+  - [Element] net.sourceforge.pmd.ast.ASTBlock
+  - [Element] net.sourceforge.pmd.ast.ASTBlockStatement
+  - [Element] net.sourceforge.pmd.ast.ASTBooleanLiteral
+  - [Element] net.sourceforge.pmd.ast.ASTBreakStatement
+  - [Element] net.sourceforge.pmd.ast.ASTCastExpression
+  - [Element] net.sourceforge.pmd.ast.ASTCastLookahead
+  - [Element] net.sourceforge.pmd.ast.ASTClassBody
+  - [Element] net.sourceforge.pmd.ast.ASTClassBodyDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTClassDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTCompilationUnit
+  - [Element] net.sourceforge.pmd.ast.ASTConditionalAndExpression
+  - [Element] net.sourceforge.pmd.ast.ASTConditionalExpression
+  - [Element] net.sourceforge.pmd.ast.ASTConditionalOrExpression
+  - [Element] net.sourceforge.pmd.ast.ASTConstructorDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTContinueStatement
+  - [Element] net.sourceforge.pmd.ast.ASTDoStatement
+  - [Element] net.sourceforge.pmd.ast.ASTEmptyStatement
+  - [Element] net.sourceforge.pmd.ast.ASTEnumDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTEnumElement
+  - [Element] net.sourceforge.pmd.ast.ASTEqualityExpression
+  - [Element] net.sourceforge.pmd.ast.ASTExclusiveOrExpression
+  - [Element] net.sourceforge.pmd.ast.ASTExplicitConstructorInvocation
+  - [Element] net.sourceforge.pmd.ast.ASTExpression
+  - [Element] net.sourceforge.pmd.ast.ASTFieldDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTForInit
+  - [Element] net.sourceforge.pmd.ast.ASTForStatement
+  - [Element] net.sourceforge.pmd.ast.ASTForUpdate
+  - [Element] net.sourceforge.pmd.ast.ASTFormalParameter
+  - [Element] net.sourceforge.pmd.ast.ASTFormalParameters
+  - [Element] net.sourceforge.pmd.ast.ASTIfStatement
+  - [Element] net.sourceforge.pmd.ast.ASTImportDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTInclusiveOrExpression
+  - [Element] net.sourceforge.pmd.ast.ASTInitializer
+  - [Element] net.sourceforge.pmd.ast.ASTInstanceOfExpression
+  - [Element] net.sourceforge.pmd.ast.ASTInterfaceDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTInterfaceMemberDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTLabeledStatement
+  - [Element] net.sourceforge.pmd.ast.ASTLiteral
+  - [Element] net.sourceforge.pmd.ast.ASTLocalVariableDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTMethodDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTMethodDeclarationLookahead
+  - [Element] net.sourceforge.pmd.ast.ASTMethodDeclarator
+  - [Element] net.sourceforge.pmd.ast.ASTMultiplicativeExpression
+  - [Element] net.sourceforge.pmd.ast.ASTName
+  - [Element] net.sourceforge.pmd.ast.ASTNameList
+  - [Element] net.sourceforge.pmd.ast.ASTNestedClassDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTNestedInterfaceDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTNullLiteral
+  - [Element] net.sourceforge.pmd.ast.ASTPackageDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTPostfixExpression
+  - [Element] net.sourceforge.pmd.ast.ASTPreDecrementExpression
+  - [Element] net.sourceforge.pmd.ast.ASTPreIncrementExpression
+  - [Element] net.sourceforge.pmd.ast.ASTPrimaryExpression
+  - [Element] net.sourceforge.pmd.ast.ASTPrimaryPrefix
+  - [Element] net.sourceforge.pmd.ast.ASTPrimarySuffix
+  - [Element] net.sourceforge.pmd.ast.ASTPrimitiveType
+  - [Element] net.sourceforge.pmd.ast.ASTRelationalExpression
+  - [Element] net.sourceforge.pmd.ast.ASTResultType
+  - [Element] net.sourceforge.pmd.ast.ASTReturnStatement
+  - [Element] net.sourceforge.pmd.ast.ASTShiftExpression
+  - [Element] net.sourceforge.pmd.ast.ASTStatement
+  - [Element] net.sourceforge.pmd.ast.ASTStatementExpression
+  - [Element] net.sourceforge.pmd.ast.ASTStatementExpressionList
+  - [Element] net.sourceforge.pmd.ast.ASTSwitchLabel
+  - [Element] net.sourceforge.pmd.ast.ASTSwitchStatement
+  - [Element] net.sourceforge.pmd.ast.ASTSynchronizedStatement
+  - [Element] net.sourceforge.pmd.ast.ASTThrowStatement
+  - [Element] net.sourceforge.pmd.ast.ASTTryStatement
+  - [Element] net.sourceforge.pmd.ast.ASTType
+  - [Element] net.sourceforge.pmd.ast.ASTTypeDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTUnaryExpression
+  - [Element] net.sourceforge.pmd.ast.ASTUnaryExpressionNotPlusMinus
+  - [Element] net.sourceforge.pmd.ast.ASTUnmodifiedClassDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTUnmodifiedInterfaceDeclaration
+  - [Element] net.sourceforge.pmd.ast.ASTVariableDeclarator
+  - [Element] net.sourceforge.pmd.ast.ASTVariableDeclaratorId
+  - [Element] net.sourceforge.pmd.ast.ASTVariableInitializer
+  - [Element] net.sourceforge.pmd.ast.ASTWhileStatement
+  - [Element] net.sourceforge.pmd.ast.Node
+  - [Element] net.sourceforge.pmd.ast.SimpleNode
