@@ -26,6 +26,31 @@ WHERE EXISTS {
   WHERE cpNode.fqn = cpType.fqn
 }
 
-WITH DISTINCT creatorType, product, fm
+WITH
+  creatorType,
+  product,
+  fm,
+  collect(DISTINCT cc.fqn) AS concreteCreatorFqns,
+  collect(DISTINCT cpType.fqn) AS concreteProductFqns,
+  collect(DISTINCT ccMethod.name) AS concreteCreatorMethods
+
 SET creatorType:FactoryMethodCreator
+
+RETURN DISTINCT
+  creatorType,
+  product,
+  fm,
+  concreteCreatorFqns,
+  concreteProductFqns,
+  concreteCreatorMethods
 }
+
+RETURN DISTINCT
+  creatorType.fqn AS creatorFqn,
+  product.fqn AS productFqn,
+  fm.name AS factoryMethodName,
+  product.fqn AS returnType,
+  concreteCreatorFqns,
+  concreteProductFqns,
+  concreteCreatorMethods
+ORDER BY creatorFqn, productFqn, factoryMethodName;
