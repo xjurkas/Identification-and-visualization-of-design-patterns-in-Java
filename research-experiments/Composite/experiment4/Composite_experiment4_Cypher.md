@@ -53,4 +53,11 @@ WHERE leafClass <> compositeClass
          OR toLower(m.name) STARTS WITH "addelement"
   }
 SET leafType:Leaf
+RETURN DISTINCT compositeType, componentType, leafType
 }
+
+RETURN DISTINCT
+  compositeType.fqn AS compositeFqn,
+  componentType.fqn AS componentFqn,
+  leafType.fqn AS leafFqn
+ORDER BY compositeFqn, componentFqn, leafFqn;
