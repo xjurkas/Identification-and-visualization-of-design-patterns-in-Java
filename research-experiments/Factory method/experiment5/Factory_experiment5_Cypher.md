@@ -26,10 +26,29 @@ WHERE EXISTS {
 }
 
 // 7. NOVÉ: ≥2 distinct ConcreteCreator tried
-WITH creatorType, fm, count(DISTINCT ccMethod.containerFqn) AS distinctCCs
+WITH
+  product,
+  creatorType,
+  fm,
+  collect(DISTINCT ccMethod.containerFqn) AS concreteCreatorFqns,
+  collect(DISTINCT cpType.fqn) AS concreteProductFqns,
+  count(DISTINCT ccMethod.containerFqn) AS distinctCCs
 WHERE distinctCCs >= 2
 
-WITH DISTINCT creatorType
 SET creatorType:FactoryMethod
 
+RETURN DISTINCT
+  product,
+  creatorType,
+  fm,
+  concreteCreatorFqns,
+  concreteProductFqns
 }
+
+RETURN DISTINCT
+  creatorType.fqn AS creatorFqn,
+  product.fqn AS productFqn,
+  fm.name AS factoryMethodName,
+  concreteCreatorFqns,
+  concreteProductFqns
+ORDER BY creatorFqn, productFqn, factoryMethodName;
