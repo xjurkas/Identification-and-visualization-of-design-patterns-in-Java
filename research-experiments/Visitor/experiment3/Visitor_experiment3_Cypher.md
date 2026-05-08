@@ -31,7 +31,7 @@ AND EXISTS {
 SET visitorType:Visitor
 
 // Označ aj Element typy (majú accept-metódu)
-WITH visitorType
+WITH visitorType, visitMethods
 MATCH (elementType:Type)-[:DECLARES]->(acceptMethod:Method)
 MATCH (acceptMethod)-[:HAS_PARAMETER]->(param:Parameter)
 MATCH (param)-[:PARAMETER_TYPE]->(visitorType)
