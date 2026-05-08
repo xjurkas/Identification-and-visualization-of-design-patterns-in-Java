@@ -34,4 +34,12 @@ WHERE EXISTS { MATCH (accessorMethod)-[:RETURN_TYPE]->(classType) }
    OR accessorMethod.returnType STARTS WITH (classNode.name + "<")
 
 SET classType:Singleton
+
+RETURN DISTINCT classType, instanceField, accessorMethod
 }
+
+RETURN DISTINCT
+  classType.fqn AS singletonFqn,
+  instanceField.name AS instanceFieldName,
+  accessorMethod.name AS accessorMethodName
+ORDER BY singletonFqn;
