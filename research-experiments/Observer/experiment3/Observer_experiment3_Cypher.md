@@ -47,11 +47,8 @@ SET observerType:Observer
 RETURN DISTINCT subjectType, observerType
 }
 
-WITH DISTINCT subjectType
-RETURN
-  count(subjectType) AS observerCount,
-  collect({
-    name: subjectType.name,
-    fqn: subjectType.fqn
-  }) AS observers;
+RETURN DISTINCT
+  subjectType.fqn AS subjectFqn,
+  observerType.fqn AS observerFqn
+ORDER BY subjectFqn, observerFqn;
 
