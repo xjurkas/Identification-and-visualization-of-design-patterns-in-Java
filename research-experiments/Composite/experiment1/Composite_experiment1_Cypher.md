@@ -21,4 +21,10 @@ WHERE toLower(childMgmtMethod.name) STARTS WITH "add"
 WITH DISTINCT compositeType, componentType
 SET compositeType:Composite
 SET componentType:Component
+RETURN DISTINCT compositeType, componentType
 }
+
+RETURN DISTINCT
+  compositeType.fqn AS compositeFqn,
+  componentType.fqn AS componentFqn
+ORDER BY compositeFqn, componentFqn;
