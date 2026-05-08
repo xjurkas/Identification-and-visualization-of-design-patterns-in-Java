@@ -52,7 +52,7 @@ AND (
 
 SET visitorType:Visitor
 
-WITH visitorType
+WITH visitorType, visitMethods
 MATCH (elementType:Type)-[:DECLARES]->(acceptMethod:Method)
 MATCH (acceptMethod)-[:HAS_PARAMETER]->(param:Parameter)
 MATCH (param)-[:PARAMETER_TYPE]->(visitorType)
