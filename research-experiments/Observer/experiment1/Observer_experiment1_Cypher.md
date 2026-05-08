@@ -36,4 +36,4 @@ RETURN DISTINCT
   subjectType.fqn AS subjectFqn,
   observerType.fqn AS observerFqn
 ORDER BY subjectFqn, observerFqn;
-}
+
