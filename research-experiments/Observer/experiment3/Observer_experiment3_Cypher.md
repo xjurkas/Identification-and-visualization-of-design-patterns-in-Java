@@ -44,4 +44,14 @@ WHERE EXISTS {
 
 SET subjectType:Subject
 SET observerType:Observer
+RETURN DISTINCT subjectType, observerType
 }
+
+WITH DISTINCT subjectType
+RETURN
+  count(subjectType) AS observerCount,
+  collect({
+    name: subjectType.name,
+    fqn: subjectType.fqn
+  }) AS observers;
+
