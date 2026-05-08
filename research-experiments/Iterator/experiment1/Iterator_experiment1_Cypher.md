@@ -21,4 +21,10 @@ AND EXISTS {
 }
 
 SET iteratorType:Iterator
+
+RETURN DISTINCT iteratorType
 }
+
+RETURN DISTINCT
+  iteratorType.fqn AS iteratorFqn
+ORDER BY iteratorFqn;
