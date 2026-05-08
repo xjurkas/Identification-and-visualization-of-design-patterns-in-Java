@@ -20,4 +20,12 @@ WITH visitorNode, visitorType, [
 WHERE size(visitMethods) >= 2
 
 SET visitorType:Visitor
+
+RETURN DISTINCT visitorType, visitMethods
 }
+
+RETURN DISTINCT
+  visitorType.fqn AS visitorFqn,
+  [m IN visitMethods | m.name] AS visitMethodNames,
+  size(visitMethods) AS visitMethodCount
+ORDER BY visitorFqn;
