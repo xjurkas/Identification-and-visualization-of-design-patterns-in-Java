@@ -60,6 +60,14 @@ WHERE EXISTS {
     AND NOT EXISTS { MATCH (cc)-[:EXTENDS*]->(baseDecoratorClass) }
 }
 
-WITH DISTINCT baseDecoratorClass
+WITH DISTINCT componentInterface, baseDecoratorClass, concreteDecoratorClass
 SET baseDecoratorClass:Decorator
+
+RETURN DISTINCT componentInterface, baseDecoratorClass, concreteDecoratorClass
 }
+
+RETURN DISTINCT
+  componentInterface.fqn AS componentFqn,
+  baseDecoratorClass.fqn AS decoratorFqn,
+  concreteDecoratorClass.fqn AS concreteDecoratorFqn
+ORDER BY componentFqn, decoratorFqn, concreteDecoratorFqn;
