@@ -43,4 +43,15 @@ WHERE toLower(acceptMethod.name) STARTS WITH "accept"
    OR toLower(acceptMethod.name) STARTS WITH "apply"
    OR toLower(acceptMethod.name) STARTS WITH "jjtaccept"
 SET elementType:Element
+
+RETURN DISTINCT visitorType, visitMethods, elementType, acceptMethod
 }
+
+WITH DISTINCT visitorType, visitMethods, elementType, acceptMethod
+RETURN
+  visitorType.fqn AS visitorFqn,
+  [m IN visitMethods | m.name] AS visitMethodNames,
+  size(visitMethods) AS visitMethodCount,
+  collect(DISTINCT elementType.fqn) AS elementFqns,
+  collect(DISTINCT acceptMethod.name) AS acceptMethodNames
+ORDER BY visitorFqn;
