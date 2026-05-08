@@ -9,7 +9,11 @@ WHERE (strategy:Interface OR (strategy:Class AND strategy.isAbstract = true))
 MATCH (strategyType:Type {fqn: strategy.fqn})
 MATCH (cs)-[:IMPLEMENTS|EXTENDS*1..3]->(strategy)
 WHERE cs:Class
-WITH strategy, strategyType, count(DISTINCT cs) AS csCount
+WITH
+  strategy,
+  strategyType,
+  collect(DISTINCT cs.fqn) AS concreteStrategyFqns,
+  count(DISTINCT cs) AS csCount
 WHERE csCount >= 2
 
 // 3. Context má field typu Strategy
@@ -28,7 +32,14 @@ WHERE contextType.fqn <> strategy.fqn
     WHERE stratMethod.containerFqn = strategy.fqn
   }
 
-WITH DISTINCT strategyType
+WITH DISTINCT strategyType, contextType, concreteStrategyFqns
 SET strategyType:StrategyDP
 
+RETURN DISTINCT strategyType, contextType, concreteStrategyFqns
 }
+
+RETURN DISTINCT
+  contextType.fqn AS contextFqn,
+  strategyType.fqn AS strategyFqn,
+  concreteStrategyFqns
+ORDER BY contextFqn, strategyFqn;
