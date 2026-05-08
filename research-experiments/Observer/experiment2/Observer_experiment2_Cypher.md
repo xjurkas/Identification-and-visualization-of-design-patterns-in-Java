@@ -31,4 +31,11 @@ WHERE NOT EXISTS {
 WITH DISTINCT subjectType, observerType
 SET subjectType:Subject
 SET observerType:Observer
+RETURN DISTINCT subjectType, observerType
 }
+
+RETURN DISTINCT
+  subjectType.fqn AS subjectFqn,
+  observerType.fqn AS observerFqn
+ORDER BY subjectFqn, observerFqn;
+
