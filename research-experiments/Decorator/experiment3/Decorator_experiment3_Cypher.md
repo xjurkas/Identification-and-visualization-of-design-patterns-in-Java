@@ -70,5 +70,13 @@ WHERE EXISTS {
   WHERE cc.fqn <> baseDecoratorClass.fqn
     AND NOT EXISTS { MATCH (cc)-[:EXTENDS*]->(baseDecoratorClass) }
 }
+WITH DISTINCT baseDecoratorClass
+SET baseDecoratorClass:Decorator
+
+RETURN DISTINCT baseDecoratorClass
 }
+
+RETURN DISTINCT
+  baseDecoratorClass.fqn AS decoratorFqn
+ORDER BY decoratorFqn;
 
