@@ -35,11 +35,13 @@ WITH
   count(DISTINCT ccMethod.containerFqn) AS distinctCCs
 WHERE distinctCCs >= 2
 
+WITH DISTINCT creatorType, product, fm, concreteCreatorFqns, concreteProductFqns
+
 SET creatorType:FactoryMethod
 
 RETURN DISTINCT
-  product,
   creatorType,
+  product,
   fm,
   concreteCreatorFqns,
   concreteProductFqns
