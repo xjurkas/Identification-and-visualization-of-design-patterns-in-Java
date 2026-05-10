@@ -38,23 +38,22 @@ WITH
   collect(DISTINCT cpType.fqn) AS concreteProductFqns,
   collect(DISTINCT ccMethod.name) AS concreteCreatorMethods
 
-SET creatorType:FactoryMethodCreator
+WITH DISTINCT creatorType, product, fm, concreteCreatorFqns, concreteProductFqns
+
+SET creatorType:FactoryMethod
 
 RETURN DISTINCT
   creatorType,
   product,
   fm,
   concreteCreatorFqns,
-  concreteProductFqns,
-  concreteCreatorMethods
+  concreteProductFqns
 }
 
 RETURN DISTINCT
   creatorType.fqn AS creatorFqn,
   product.fqn AS productFqn,
   fm.name AS factoryMethodName,
-  product.fqn AS returnType,
   concreteCreatorFqns,
-  concreteProductFqns,
-  concreteCreatorMethods
+  concreteProductFqns
 ORDER BY creatorFqn, productFqn, factoryMethodName;
